@@ -1,7 +1,7 @@
-<%@ page import="org.example.exojee3.Personne" %>
+<%@ page import="org.example.exojee3.model.Personne" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="personnes" type="java.util.ArrayList<org.example.exojee3.Personne>" scope="request"/>
+<jsp:useBean id="personnes" type="java.util.ArrayList<org.example.exojee3.model.Personne>" scope="request"/>
 
 <html>
 <head>
@@ -28,10 +28,11 @@
 
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-8">
-            <table class="table table-striped table-hover even-row-color">
+        <div class="col-6">
+            <table class="table table-striped table-hover even-row-color table-bordered">
                 <thead class="thead-dark">
                 <tr>
+                    <th>#</th>
                     <th>Prénom</th>
                     <th>Nom</th>
                     <th>Age</th>
@@ -39,12 +40,17 @@
                 </thead>
                 <tbody>
                 <%
-                    for (Personne p : personnes) {
+                    for (int i = 0; i < personnes.size(); i++) {
                 %>
                 <tr>
-                    <td><%= p.getPrenom() %></td>
-                    <td><%= p.getNom() %></td>
-                    <td><%= p.getAge() %></td>
+                    <td><%= i+1%>
+                    </td>
+                    <td><%= personnes.get(i).getPrenom() %>
+                    </td>
+                    <td><%= personnes.get(i).getNom() %>
+                    </td>
+                    <td><%= personnes.get(i).getAge() %>
+                    </td>
                 </tr>
                 <% } %>
                 </tbody>

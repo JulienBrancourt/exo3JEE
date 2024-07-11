@@ -1,16 +1,15 @@
-package org.example.exojee3;
+package org.example.exojee3.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.exojee3.model.Personne;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 @WebServlet(name = "servletexo3", value = "/exo3")
 public class Servletexo3 extends HttpServlet {
@@ -26,6 +25,7 @@ public class Servletexo3 extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        on ajoute la liste de personnes à la requête, pour pouvoir ensuite la dispatcher
         req.setAttribute("personnes", personnes);
         req.getRequestDispatcher("/pages/exo3.jsp").forward(req, resp);
     }

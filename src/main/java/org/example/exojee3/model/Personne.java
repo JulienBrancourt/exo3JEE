@@ -1,4 +1,4 @@
-package org.example.exojee3;
+package org.example.exojee3.model;
 
 public class Personne {
     private String prenom;
